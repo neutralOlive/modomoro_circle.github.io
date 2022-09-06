@@ -146,16 +146,12 @@
         // iOS: 
         // https://github.com/richtr/NoSleep.js
         var noSleep = new NoSleep();
-        // Enable wake lock.
-        // (must be wrapped in a user input event handler e.g. a mouse or touch handler)
-        // document.addEventListener('click', function enableNoSleep() {
         window.addEventListener('load', (event) => {
-            // document.removeEventListener('click', enableNoSleep, false);
-            noSleep.enable();
+            noSleep.enable(); // keep the screen on!
             console.log("noSleep enabled");
             showSavedAlert();
-        });
-
+        }, false);
+       
 
         // CHROME:
             // test support
