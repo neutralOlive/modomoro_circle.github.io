@@ -330,6 +330,9 @@
                 timePassed = 0;
                 timeLeft = TIME_LIMIT;
                 timerInterval = null;
+                
+                setCircleDasharray();
+                setRemainingPathColor(timeLeft);
                 startTimer();
             } else {
                 rest = 0;
@@ -346,6 +349,8 @@
                 .getElementById("base-timer-path-remaining")
                 .classList.add(COLOR_CODES.info.color);
 
+                setCircleDasharray();
+                setRemainingPathColor(timeLeft);
                 startTimer();
             }
         }
@@ -369,7 +374,7 @@
         
         function formatTime(time) {
             if (time <= 0) {
-                return '0:0';
+                return '0:00';
             } else {
                 const minutes = Math.floor(time / 60);
                 let seconds = time % 60;
